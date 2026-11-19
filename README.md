@@ -27,14 +27,18 @@
 
 ## Build
 
-Each crate is currently standalone, so build it from its own directory:
+Every crate is a member of the Cargo workspace declared in the root `Cargo.toml`, so one command builds all of them:
 
 ```bash
-cd zhs-json
-cargo build
+cargo build --workspace
 ```
 
-There is no workspace manifest at the repository root yet; add one if you want a single `cargo build` for every crate.
+Build or test a single member with `-p`:
+
+```bash
+cargo build -p zhs-json
+cargo test -p zhs-json
+```
 
 ## Documentation
 

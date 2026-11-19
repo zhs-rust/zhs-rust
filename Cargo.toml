@@ -1,0 +1,22 @@
+[workspace]
+resolver = "3"
+members = [
+    "zhs-config",
+    "zhs-crypto",
+    "zhs-entity",
+    "zhs-entity-influx",
+    "zhs-entity-mariadb",
+    "zhs-entity-mongo",
+    "zhs-entity-oracle",
+    "zhs-entity-pi",
+    "zhs-entity-sqlite",
+    "zhs-entity-sqlserver",
+    "zhs-framework",
+    "zhs-http",
+    "zhs-json",
+    "zhs-ldap",
+    "zhs-log",
+    "zhs-mn",
+    "zhs-scheduler",
+    "zhs-tui",
+]
