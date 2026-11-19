@@ -1,43 +1,45 @@
 # zhs
 
-> 自研的 Rust 框架，采用「瘦 crate + 门面 crate」的架构，核心代码零依赖。
+> A self-built Rust framework built around a **thin crates + facade crate** architecture, with zero dependencies in its core.
 
-## 架构
+## Architecture
 
-- **瘦 crate**：每个能力（JSON、日志、HTTP、调度……）都是独立、最小化的 crate。
-- **门面 crate**：`zhs-framework` 聚合各瘦 crate，向上提供统一入口。
-- **零依赖**：核心部分不引入第三方依赖。
+- **Thin crates** — every capability (JSON, logging, HTTP, scheduling, ...) is a small, independent crate that does one thing.
+- **Facade crate** — `zhs-framework` re-exports the thin crates and provides a single entry point.
+- **Zero dependencies** — the core pulls in no third-party crates.
 
-## crates
+## Crates
 
-| crate | 说明 |
+| Crate | Description |
 | --- | --- |
-| `zhs-framework` | 门面 crate，聚合各子模块 |
-| `zhs-json` | JSON 解析与序列化 |
-| `zhs-log` | 日志 |
+| `zhs-framework` | Facade crate; aggregates the sub-crates |
+| `zhs-json` | JSON parsing and serialization |
+| `zhs-log` | Logging |
 | `zhs-http` | HTTP |
-| `zhs-config` | 配置 |
-| `zhs-crypto` | 加解密 |
+| `zhs-config` | Configuration |
+| `zhs-crypto` | Cryptography |
 | `zhs-ldap` | LDAP |
-| `zhs-mn` | 模型/微服务基础组件 |
-| `zhs-scheduler` | 调度 |
-| `zhs-tui` | 终端界面 |
-| `zhs-entity` | 实体抽象 |
-| `zhs-entity-sqlite` / `-mariadb` / `-mongo` / `-oracle` / `-sqlserver` / `-influx` / `-pi` | 各数据库的实体实现 |
+| `zhs-mn` | Model / microservice building blocks |
+| `zhs-scheduler` | Scheduling |
+| `zhs-tui` | Terminal UI |
+| `zhs-entity` | Entity abstraction |
+| `zhs-entity-sqlite` / `-mariadb` / `-mongo` / `-oracle` / `-sqlserver` / `-influx` / `-pi` | Entity backends for each database |
 
-## 构建
+## Build
 
-```bash
-cargo build
-```
-
-各 crate 目前为独立 crate，可进入各自目录单独构建：
+Each crate is currently standalone, so build it from its own directory:
 
 ```bash
 cd zhs-json
 cargo build
 ```
 
-## 文档
+There is no workspace manifest at the repository root yet; add one if you want a single `cargo build` for every crate.
 
-见 [doc/readme.md](doc/readme.md)。
+## Documentation
+
+See [doc/readme.md](doc/readme.md) (Chinese).
+
+## License
+
+No license has been chosen yet.
