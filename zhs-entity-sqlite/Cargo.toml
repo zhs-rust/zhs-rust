@@ -2,5 +2,11 @@
 name = "zhs-entity-sqlite"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.88"
+description = "SQLite backend for zhs-entity"
 
 [dependencies]
+zhs-entity = { path = "../zhs-entity", version = "0.1.0" }
+
+[dev-dependencies]
+zhs-framework = { path = "../zhs-framework" }

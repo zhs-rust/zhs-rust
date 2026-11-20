@@ -1,0 +1,12 @@
+[package]
+name = "mariadb-crud"
+version = "0.1.0"
+edition = "2024"
+default-run = "mariadb-crud"
+
+[dependencies]
+zhs-crypto = { path = "../../zhs-crypto" }
+zhs-entity-mariadb = { path = "../../zhs-entity-mariadb" }
+zhs-framework = { path = "../../zhs-framework" }
+
+[workspace]

@@ -2,5 +2,10 @@
 name = "zhs-entity-influx"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.88"
+description = "InfluxDB 2.x backend for zhs"
 
 [dependencies]
+zhs-http = { path = "../zhs-http", version = "0.1.0" }
+zhs-entity = { path = "../zhs-entity", version = "0.1.0" }
+zhs-json = { path = "../zhs-json", version = "0.1.0" }

@@ -2,5 +2,28 @@
 name = "zhs-framework"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.88"
+description = "zhs facade: ASP.NET Core-shaped web framework"
+
+[lib]
+name = "zhs_framework"
+path = "src/lib.rs"
+
+[features]
+default = []
+ldap = ["dep:zhs-ldap"]
 
 [dependencies]
+zhs-config = { path = "../zhs-config", version = "0.1.0" }
+zhs-entity = { path = "../zhs-entity", version = "0.1.0" }
+zhs-http = { path = "../zhs-http", version = "0.1.0" }
+zhs-json = { path = "../zhs-json", version = "0.1.0" }
+zhs-log = { path = "../zhs-log", version = "0.1.0" }
+zhs-scheduler = { path = "../zhs-scheduler", version = "0.1.0" }
+zhs-macros = { path = "../zhs-macros", version = "0.1.0" }
+zhs-ldap = { path = "../zhs-ldap", version = "0.1.0", optional = true }
+zhs-types = { path = "../zhs-types", version = "0.1.0" }
+
+[[example]]
+name = "ldap_login"
+required-features = ["ldap"]

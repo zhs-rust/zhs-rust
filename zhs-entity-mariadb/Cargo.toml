@@ -2,5 +2,10 @@
 name = "zhs-entity-mariadb"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.88"
+description = "MariaDB/MySQL backend for zhs-entity"
 
 [dependencies]
+zhs-entity = { path = "../zhs-entity", version = "0.1.0" }
+zhs-crypto = { path = "../zhs-crypto", version = "0.1.0" }
+zhs-json = { path = "../zhs-json", version = "0.1.0" }

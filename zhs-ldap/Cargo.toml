@@ -2,5 +2,11 @@
 name = "zhs-ldap"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.88"
+description = "Minimal LDAP v3 client for zhs"
+
+[lib]
+name = "zhs_ldap"
+path = "src/lib.rs"
 
 [dependencies]

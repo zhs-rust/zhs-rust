@@ -1,0 +1,12 @@
+[package]
+name = "zhs-cli"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+description = "Project generator for zhs"
+
+[[bin]]
+name = "zhs"
+path = "src/main.rs"
+
+[dependencies]

@@ -1,6 +1,7 @@
 [workspace]
 resolver = "3"
 members = [
+    "zhs-cli",
     "zhs-config",
     "zhs-crypto",
     "zhs-entity",
@@ -16,7 +17,9 @@ members = [
     "zhs-json",
     "zhs-ldap",
     "zhs-log",
+    "zhs-macros",
     "zhs-mn",
     "zhs-scheduler",
     "zhs-tui",
+    "zhs-types",
 ]

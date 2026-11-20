@@ -1,14 +1,10 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+pub mod error;
+pub mod platform;
+pub mod scheduler;
+pub mod thread_pool;
+pub mod watchdog;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+pub use error::{JoinError, SchedulerError, ThreadPoolError, TimeoutError, WatchdogError};
+pub use scheduler::Scheduler;
+pub use thread_pool::ThreadPool;
+pub use watchdog::Watchdog;

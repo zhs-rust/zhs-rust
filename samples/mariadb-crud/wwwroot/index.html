@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录 - zhs mariadb-crud</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="login-page">
+    <form class="login-card" id="login-form" autocomplete="off">
+        <h1>zhs mariadb-crud</h1>
+        <p class="subtitle">MariaDB + JWT 登录示例</p>
+
+        <div style="margin-bottom: 14px">
+            <label for="username">用户名</label>
+            <input id="username" name="username" placeholder="admin" required>
+        </div>
+
+        <div>
+            <label for="password">密码</label>
+            <input id="password" name="password" type="password" placeholder="••••••••" required>
+        </div>
+
+        <button class="btn-primary" type="submit" id="login-button">登 录</button>
+
+        <div class="form-error" id="login-error"></div>
+
+        <div class="login-hint">
+            演示账号:<br>
+            管理员 admin / admin123(可增删改查)<br>
+            普通用户 demo / demo123(不可删除)
+        </div>
+    </form>
+
+    <script>
+        "use strict";
+
+        const TOKEN_KEY = "zhs_crud_token";
+        const USER_KEY = "zhs_crud_user";
+
+        // 已登录直接进入管理页
+        if (localStorage.getItem(TOKEN_KEY)) {
+            location.replace("/app.html");
+        }
+
+        const form = document.getElementById("login-form");
+        const button = document.getElementById("login-button");
+        const errorBox = document.getElementById("login-error");
+
+        function showError(message) {
+            errorBox.textContent = message;
+            errorBox.style.display = "block";
+        }
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            errorBox.style.display = "none";
+            button.disabled = true;
+            button.textContent = "登录中…";
+
+            try {
+                const response = await fetch("/api/auth/login", {
+                    method: "POST",
+                    headers: { "content-type": "application/json" },
+                    body: JSON.stringify({
+                        username: document.getElementById("username").value.trim(),
+                        password: document.getElementById("password").value,
+                    }),
+                });
+
+                const data = await response.json().catch(() => null);
+
+                if (!response.ok) {
+                    showError(data && (data.detail || data.title) || `登录失败 (${response.status})`);
+                    return;
+                }
+
+                localStorage.setItem(TOKEN_KEY, data.token);
+                localStorage.setItem(USER_KEY, JSON.stringify(data.user));
+                location.replace("/app.html");
+            } catch {
+                showError("网络错误,请确认服务已启动");
+            } finally {
+                button.disabled = false;
+                button.textContent = "登 录";
+            }
+        });
+    </script>
+</body>
+</html>

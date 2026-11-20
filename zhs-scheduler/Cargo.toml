@@ -2,5 +2,11 @@
 name = "zhs-scheduler"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.88"
+description = "Quartz-style job scheduler for zhs"
+
+[lib]
+name = "zhs_scheduler"
+path = "src/lib.rs"
 
 [dependencies]

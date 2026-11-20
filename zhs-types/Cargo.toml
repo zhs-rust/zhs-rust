@@ -1,0 +1,8 @@
+[package]
+name = "zhs-types"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+description = "Common value types for zhs: Guid, DateTimeOffset, Decimal"
+
+[dependencies]
